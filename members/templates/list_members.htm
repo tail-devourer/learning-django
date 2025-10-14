@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h1>Hello, World!</h1>
+    <h1>Members</h1>
+    <ul>
+      {% for member in members %}
+        <li>{{ member.first_name }} {{ member.last_name }}</li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
