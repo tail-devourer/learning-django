@@ -12,3 +12,13 @@ def list_members(request):
     }
 
     return HttpResponse(template.render(context, request))
+
+def member_details(request, id):
+    member = Member.objects.get(id=id)
+    template = loader.get_template('member_details.htm')
+
+    context = {
+        'member': member,
+    }
+
+    return HttpResponse(template.render(context, request))

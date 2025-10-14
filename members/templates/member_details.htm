@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>{{ member.first_name }} {{ member.last_name }}</h1>
+    <p>
+      {% load phone_filters %}
+      Phone: {{ member.phone|format_phone }}<br />
+      Member since: {{ member.joined_date }}
+    </p>
+    <p>Back to <a href="/members">members</a></p>
+  </body>
+</html>
