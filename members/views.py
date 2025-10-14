@@ -3,6 +3,10 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Member
 
+def home(request):
+    template = loader.get_template('home.htm')
+    return HttpResponse(template.render())
+
 def list_members(request):
     members = Member.objects.all().values()
     template = loader.get_template('list_members.htm')

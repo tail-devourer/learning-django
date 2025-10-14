@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <h1>Members</h1>
-    <ul>
-      {% for member in members %}
-        <li>
-          <a href="/members/{{ member.id }}">
-            {{ member.first_name }} {{ member.last_name }}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </body>
-</html>
+{% extends "index.htm" %}
+
+{% block title %}
+  Members - Tennis Club
+{% endblock %}
+
+{% block content %}
+  <p><a href="/">Home</a></p>
+  <h1>Members</h1>
+  <ul>
+    {% for member in members %}
+      <li>
+        <a href="/members/{{ member.id }}">
+          {{ member.first_name }} {{ member.last_name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
