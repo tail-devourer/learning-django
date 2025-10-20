@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Not Found</title>
-</head>
-<body>
+{% extends "index.html" %}
+
+{% block title %}
+  404 - Not Found
+{% endblock %}
+
+{% block content %}
   <h1>Oops! The page you were looking for, couldn't be found.</h1>
   <a href="/">Home</a>
-</body>
-</html>
+{% block end %}
