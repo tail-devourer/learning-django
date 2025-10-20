@@ -28,11 +28,11 @@ def member_details(request, id):
     return HttpResponse(template.render(context, request))
 
 def testing(request):
+    members = Member.objects.all()
     template = loader.get_template('testing_template.htm')
 
     context = {
-        'fruits': ['Apple', 'Banana', 'Cherry'],
-        'items': [],
+        'members': members,
     }
 
     return HttpResponse(template.render(context, request))

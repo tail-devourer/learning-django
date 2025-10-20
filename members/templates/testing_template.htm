@@ -1,44 +1,19 @@
 <!DOCTYPE html>
 <html>
 <body>
-  {# This is a comment. #}
-
-  {% comment %}
-    This is also a comment.
-  {% endcomment %}
-
-  {% with first_name="Samuel" %}
-    <h1>Hello {{ first_name }}, How are you doing today?</h1>
-  {% endwith %}
-
-  {% verbatim %}
-    {{ This content will not be rendered by the template engine. }}
-  {% endverbatim %}
-
-  <hr />
-
-  <ul>
-    {% for fruit in fruits %}
-      <li
-        {% if forloop.first %}
-          style='color:red;'
-        {% elif forloop.last %}
-          style='color:green;'
-        {% endif %}
-      >{{ forloop.counter }} - {{ fruit }}</li>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+    {% for member in members %}
+      <tr>
+        <td>{{ member.id }}</td>
+        <td>{{ member.first_name }}</td>
+        <td>{{ member.last_name }}</td>
+      </tr>
     {% endfor %}
-  </ul>
-
-  <hr />
-
-  <ul>
-    {% for item in items %}
-      <li>{{ item }}</li>
-    {% empty %}
-      <li>Oh! There are no items!</li>
-    {% endfor %}
-  </ul>
-
-  {% include 'footer.htm' with name='Samuel' %}
+  </table>
 </body>
 </html>
