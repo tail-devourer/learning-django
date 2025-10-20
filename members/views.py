@@ -17,8 +17,8 @@ def list_members(request):
 
     return HttpResponse(template.render(context, request))
 
-def member_details(request, id):
-    member = Member.objects.get(id=id)
+def member_details(request, slug):
+    member = Member.objects.get(slug=slug)
     template = loader.get_template('member_details.html')
 
     context = {
