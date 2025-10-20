@@ -28,7 +28,7 @@ def member_details(request, id):
     return HttpResponse(template.render(context, request))
 
 def testing(request):
-    members = Member.objects.filter(first_name='John').values() | Member.objects.filter(first_name='Jane').values() # OR
+    members = Member.objects.filter(first_name__startswith='J').values()
     template = loader.get_template('testing_template.htm')
 
     context = {
