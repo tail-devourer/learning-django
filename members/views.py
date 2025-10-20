@@ -28,7 +28,7 @@ def member_details(request, id):
     return HttpResponse(template.render(context, request))
 
 def testing(request):
-    members = Member.objects.filter(first_name__startswith='J').values()
+    members = Member.objects.order_by('-first_name').values()
     template = loader.get_template('testing_template.htm')
 
     context = {
