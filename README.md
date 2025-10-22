@@ -9,3 +9,4 @@
 * [gitignore.io](https://www.toptal.com/developers/gitignore/)
 * [Django Tutorial by W3Schools](https://www.w3schools.com/django/index.php)
 * [Django Tailwind Documentation](https://django-tailwind.readthedocs.io/en/latest/index.html)
+* [django-environ Documentation](https://django-environ.readthedocs.io/en/latest/)
