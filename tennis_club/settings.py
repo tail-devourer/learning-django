@@ -49,13 +49,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 if DEBUG:
@@ -69,7 +69,7 @@ if DEBUG:
 
 TAILWIND_APP_NAME = 'theme'
 
-NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
+NPM_BIN_PATH = env('NPM_BIN_PATH', default=r'C:\Program Files\nodejs\npm.cmd')
 
 ROOT_URLCONF = 'tennis_club.urls'
 
