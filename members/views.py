@@ -18,11 +18,15 @@ def list_members(request):
     return HttpResponse(template.render(context, request))
 
 def member_details(request, slug):
-    member = Member.objects.get(slug=slug)
-    template = loader.get_template('member_details.html')
+    try:
+        member = Member.objects.get(slug=slug)
+        template = loader.get_template('member_details.html')
 
-    context = {
-        'member': member,
-    }
+        context = {
+            'member': member,
+        }
 
-    return HttpResponse(template.render(context, request))
+        return HttpResponse(template.render(context, request))
+    except Member.DoesNotExist:
+        template = loader.get_template('404.html')
+        return HttpResponse(template.render())

@@ -5,11 +5,20 @@
 {% endblock %}
 
 {% block content %}
-  <h1>{{ member.first_name }} {{ member.last_name }}</h1>
-  <p>
-    {% load phone_filters %}
-    Phone: {{ member.phone|format_phone }}<br />
-    Member since: {{ member.joined_date }}
-  </p>
-  <p>Back to <a href="/members">members</a></p>
+  {% include "topbar.html" %}
+  <div class="flex flex-col items-center py-8 gap-y-8">
+    <div class="text-4xl font-semibold">Member</div>
+    <div class="card w-72 shadow-sm">
+      <div class="card-body">
+        <div class="card-title">
+          {{ member.first_name }} {{ member.last_name }}
+        </div>
+        <div>
+          {% load phone_filters %}
+          <span class="font-semibold">Phone:</span> {{ member.phone|format_phone }}<br />
+          <span class="font-semibold">Member since:</span> {{ member.joined_date }}
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
