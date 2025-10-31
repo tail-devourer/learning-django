@@ -6,7 +6,7 @@ class Member(models.Model):
     phone = models.IntegerField()
     joined_date = models.DateField()
     avatar = models.ImageField(default='default.png')
-    slug = models.SlugField(default="", null=False)
+    slug = models.SlugField()
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

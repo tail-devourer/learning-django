@@ -1,20 +1,15 @@
-{% load compress %}
-{% load static %}
 {% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock title %}</title>
     {% tailwind_css %}
-    {% compress css %}
-    <link rel="stylesheet" href={% static "globals.css" %}>
-    {% endcompress %}
   </head>
   <body>
     {% block content %}
-    {% endblock %}
+    {% endblock content %}
   </body>
 </html>

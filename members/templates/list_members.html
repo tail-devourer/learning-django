@@ -16,9 +16,12 @@
           </figure>
           <div class="card-body">
             <div class="card-title">
-              <a href="/members/{{ member.slug }}" class="btn btn-ghost">
-                {{ member.first_name }} {{ member.last_name }}
-              </a>
+              {{ member.first_name }} {{ member.last_name }}
+            </div>
+            <div>
+              {% load phone_filters %}
+              <span class="font-semibold">Phone:</span> {{ member.phone|format_phone }}<br />
+              <span class="font-semibold">Member since:</span> {{ member.joined_date }}
             </div>
           </div>
         </div>
