@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'members',
+    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -142,6 +143,11 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = 'static/'
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
+
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = False
+COMPRESS_ROOT = STATIC_ROOT
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = 'media/'

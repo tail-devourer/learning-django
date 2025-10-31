@@ -12,3 +12,4 @@
 * [django-environ Documentation](https://django-environ.readthedocs.io/en/latest/)
 * [Tailwind CSS Documentation](https://tailwindcss.com/docs/installation/using-vite)
 * [Daisy UI Components](https://daisyui.com/components)
+* [TestDriven.io](https://testdriven.io/blog/)
