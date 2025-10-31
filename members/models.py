@@ -5,6 +5,7 @@ class Member(models.Model):
     last_name = models.CharField(max_length=255)
     phone = models.IntegerField()
     joined_date = models.DateField()
+    avatar = models.ImageField(default='default.png')
     slug = models.SlugField(default="", null=False)
 
     def __str__(self):

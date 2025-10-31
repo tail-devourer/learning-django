@@ -8,7 +8,7 @@ def home(request):
     return HttpResponse(template.render())
 
 def list_members(request):
-    members = Member.objects.all().values()
+    members = Member.objects.all()
     template = loader.get_template('list_members.html')
 
     context = {
