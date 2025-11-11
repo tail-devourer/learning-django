@@ -71,16 +71,26 @@
         </div>
       {% endfor %}
     </div>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Add Comment</button>
-    </form>
-    {% for comment in comments %}
-    <div>
-      <p>{{ comment.content }}</p>
-      <small>{{ comment.created_at }}</small>
+    <div class="mt-8 w-full max-w-md">
+      <form method="post" class="join w-full">
+        {% csrf_token %}
+        <input 
+          type="text" 
+          name="content" 
+          class="input input-bordered join-item flex-1" 
+          placeholder="Add a comment..." 
+          required
+        >
+        <button type="submit" class="btn btn-primary join-item">Post</button>
+      </form>
+      <div class="mt-6 space-y-3">
+        {% for comment in comments %}
+          <div class="bg-base-200 rounded-lg p-4">
+            <div class="text-sm">{{ comment.content }}</div>
+            <span class="text-gray-500 text-xs">{{ comment.created_at }}</span>
+          </div>
+        {% endfor %}
+      </div>
     </div>
-    {% endfor %}
   </div>
 {% endblock %}
