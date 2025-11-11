@@ -71,5 +71,16 @@
         </div>
       {% endfor %}
     </div>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Add Comment</button>
+    </form>
+    {% for comment in comments %}
+    <div>
+      <p>{{ comment.content }}</p>
+      <small>{{ comment.created_at }}</small>
+    </div>
+    {% endfor %}
   </div>
 {% endblock %}
