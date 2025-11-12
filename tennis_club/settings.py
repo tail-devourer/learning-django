@@ -2,6 +2,7 @@
 
 import environ
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 
 env = environ.Env(
     DEBUG=(bool, False)
@@ -37,6 +38,7 @@ MIDDLEWARE = [
     # 'whitenoise.middleware.WhiteNoiseMiddleware', # Whitenoise allows serving static files in production directly.
                                                     # Not recommended as it slows down the website significantly.
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',    # Not used by default and is required for multi-language support.
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -108,10 +110,19 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('fr', _('French')),
+)
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale/',
+]
 
 
 # Static files (CSS, JavaScript, Images)
